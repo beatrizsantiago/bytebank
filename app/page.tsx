@@ -5,12 +5,12 @@ export default function Home() {
   return (
     <Landing>
       <div className="flex flex-col items-center justify-center md:flex-row">
-        <h1 className="text-lg font-semibold m-3 max-w-[300px] leading-7 lg:text-xl lg:max-w-[430px]">
+        <h1 className="text-center text-lg font-semibold m-3 max-w-[300px] leading-7 lg:text-xl lg:max-w-[430px] md:text-left">
           Experimente mais liberdade no
           controle da sua vida financeira.
           Crie sua conta com a gente!
         </h1>
-        <div className="w-[660px] h-[410px] relative m-4">
+        <div className="w-[350px] h-[200px] sm:w-[500px] sm:h-[350px] md:w-[660px] md:h-[410px] relative m-4 z-0">
           <Image
             src="/images/banner.svg"
             alt="Banner"
