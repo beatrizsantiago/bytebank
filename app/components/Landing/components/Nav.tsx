@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
-import { Button } from '@beatrizsantiago/money-flow';
+import { Button, Menu } from '@beatrizsantiago/money-flow';
 import { CloseOutlined, MenuOutlined } from '@ant-design/icons';
 
 const Navbar = () => {
@@ -55,14 +55,14 @@ const Navbar = () => {
               <div className="flex justify-end">
                 <CloseOutlined className="text-secondary-main text-lg" onClick={toggleMenu} />
               </div>
-              <ul className="mx-2 mb-2 text-center text-white">
-                <li className="p-4 border-b-2 border-secondary-main border-solid">
-                  Sobre
-                </li>
-                <li className="p-4">
-                  Serviços
-                </li>
-              </ul>
+              <Menu
+                activeIndex={0}
+                items={[
+                  { title: 'Sobre', onClick: () => {} },
+                  { title: 'Serviços', onClick: () => {} },
+                ]}
+                isWhite
+              />
             </div>
           )}
 
