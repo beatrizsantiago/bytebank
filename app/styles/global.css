@@ -17,3 +17,7 @@
 body, input, button {
   font-family: 'Inter', sans-serif;
 }
+
+body {
+  background-color: #E4EDE3;
+}
