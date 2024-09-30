@@ -15,6 +15,7 @@ const config: Config = {
       colors: {
         primary: {
           main: '#004D61',
+          light: '#DEE9EA',
           transparent: 'rgba(0, 77, 97, 0.1)',
           hover: 'rgba(0, 77, 97, 0.7)',
         },
@@ -29,7 +30,6 @@ const config: Config = {
           light: '#CCCCCC',
           medium: '#CBCBCB',
           dark: '#444444',
-          bluegray: '#DEE9EA',
           '100': '#F8F8F8',
           '600': '#767676',
         },
