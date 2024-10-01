@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  compiler: {
-    styledComponents: true,
-  },
+  env: {
+    NEXT_PUBLIC_API_URL: 'http://localhost:3001/api',
+  }
 };
 
 export default nextConfig;
