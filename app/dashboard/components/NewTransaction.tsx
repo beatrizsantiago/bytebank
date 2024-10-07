@@ -33,10 +33,8 @@ const NewTransaction = ():JSX.Element => {
     const transactionService = new TransactionService();
 
     try {
-      const amount = kind.value === 'TRANSFER' ? (floatValue * -1) : floatValue;
-
       await transactionService.add(
-        new TransactionData(kind.value as KindType, amount)
+        new TransactionData(kind.value as KindType, floatValue)
       );
 
       toast.success('Transação realizada com sucesso!', {
