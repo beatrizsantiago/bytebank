@@ -5,7 +5,13 @@ export interface ITransactionData {
   kind: KindType;
   value: number;
   date: string;
-}
+};
+
+export interface ITransactionList {
+  data: ITransactionData[];
+  totalPages: number;
+  currentPage: number;
+};
 
 export class TransactionData {
   kind: KindType;
@@ -25,6 +31,8 @@ export class TransactionService {
   };
 
   async add(params:TransactionData): Promise<void> {
+    
+    
     const res = await fetch(this.url, {
       method: 'POST',
       headers: {
@@ -41,15 +49,20 @@ export class TransactionService {
     return;
   };
 
-  async list(): Promise<ITransactionData[]> {
-    const res = await fetch(this.url);
+  async list(page?:number, limit?:number): Promise<ITransactionList> {
+    const searchParams = new URLSearchParams({
+      'page': `${page || 1}`,
+      'limit': `${limit || 6}`,
+    });
+    
+    const res = await fetch(`${this.url}?${searchParams}`);
 
     if (!res.ok) {
       const err = await res.json();
       throw new Error(err.error);
     };
 
-    const data: ITransactionData[] = await res.json();
+    const data: ITransactionList = await res.json();
 
     return data;
   };
