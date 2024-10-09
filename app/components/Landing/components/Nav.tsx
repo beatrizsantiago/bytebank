@@ -4,9 +4,13 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { Button, Menu } from '@beatrizsantiago/money-flow';
 import { CloseOutlined, MenuOutlined } from '@ant-design/icons';
+import Login from '../../Login';
+import SignUp from '../../SignUp';
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false)
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showSignUpModal, setShowSignUpModal] = useState(false);
 
   const toggleMenu = () => setOpenMenu(!openMenu);
 
@@ -42,8 +46,19 @@ const Navbar = () => {
           </div>
 
           <div className="flex justify-center items-center">
-            <Button text="Abrir minha conta" color="secondary" className="mr-4" />
-            <Button text="Já tenho conta" color="secondary" outlined />
+            <Button
+              text="Abrir minha conta"
+              color="secondary"
+              className="mr-4"
+              onClick={() => setShowSignUpModal(true)}
+            />
+
+            <Button
+              text="Já tenho conta"
+              color="secondary"
+              outlined
+              onClick={() => setShowLoginModal(true)}
+            />
           </div>
         </div>
 
@@ -74,6 +89,14 @@ const Navbar = () => {
           />
         </div>
       </nav>
+
+      {showLoginModal && (
+        <Login onClose={() => setShowLoginModal(false)} />
+      )}
+
+      {showSignUpModal && (
+        <SignUp onClose={() => setShowSignUpModal(false)} />
+      )}
     </div>
   );
 };
