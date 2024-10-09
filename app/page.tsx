@@ -72,7 +72,7 @@ export default function Page() {
 
         <div className="flex flex-col items-center max-w-[282px]">
           <Image
-            src="/images/star.svg"
+            src="/images/devices.svg"
             alt="Vantagem 1"
             width={73}
             height={56}
