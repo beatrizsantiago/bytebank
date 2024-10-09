@@ -4,12 +4,17 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { Input, Select, Button } from '@beatrizsantiago/money-flow';
 
-import { KindType, TransactionData, TransactionService } from '../../../services/transactions'
+import {
+  KindType,
+  TransactionData,
+  TransactionService,
+  ITransactionData,
+} from '../../../services/transactions'
 import Modal from '../../Modal';
 
 type Props = {
   onClose: () => void;
-  transactionId: string;
+  transaction: ITransactionData;
 };
 
 type OptionType = {
@@ -17,9 +22,12 @@ type OptionType = {
   value: string;
 };
 
-const EditTransactionModal = ({ onClose, transactionId }:Props) => {
-  const [kind, setKind] = useState<OptionType | null>(null)
-  const [value, setValue] = useState('');
+const EditTransactionModal = ({ onClose, transaction }:Props) => {
+  const [kind, setKind] = useState<OptionType | null>({
+    label: transaction.kind === 'TRANSFER' ? 'Transferência' : 'Depósito',
+    value: transaction.kind,
+  })
+  const [value, setValue] = useState(transaction.value.toString());
   const [errors, setErrors] = useState<{ [key:string]: string } | null>(null)
 
   const onEditClick = async () => {
@@ -42,7 +50,7 @@ const EditTransactionModal = ({ onClose, transactionId }:Props) => {
     try {
       const amount = kind.value === 'TRANSFER' ? (floatValue * -1) : floatValue;
 
-      await transactionService.update(transactionId, new TransactionData(kind.value as KindType, amount));
+      await transactionService.update(transaction._id, new TransactionData(kind.value as KindType, amount));
 
       toast.success('Transação atualizada com sucesso!', {
         onClose: () => window.location.reload(),
@@ -50,6 +58,8 @@ const EditTransactionModal = ({ onClose, transactionId }:Props) => {
 
       setKind(null);
       setValue('');
+
+      onClose();
     } catch (error) {
       if (error instanceof Error) {
         toast.error(error.message);
@@ -86,9 +96,9 @@ const EditTransactionModal = ({ onClose, transactionId }:Props) => {
             {errors?.kind && <p className="text-red-500 text-sm">{errors.kind}</p>}
           </div>
 
-          <p className="font-semibold text-primary-main mb-1 text-sm">
+          <label className="font-semibold text-primary-main mb-1 text-sm">
             Valor
-          </p>
+          </label>
           <div className="mb-6">
             <Input
               placeholder="0,00"

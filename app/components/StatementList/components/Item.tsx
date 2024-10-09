@@ -44,7 +44,7 @@ const Item = ({ transaction }:Props) => {
       {showEditModal && (
         <EditModal
           onClose={() => setShowEditModal(false)}
-          transactionId={transaction._id}
+          transaction={transaction}
         />
       )}
     </>
