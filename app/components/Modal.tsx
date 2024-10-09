@@ -14,7 +14,7 @@ const Modal = ({ isVisible, onClose, children }:Props) => {
 
   return (
     <div className="fixed inset-0 bg-gray-600 bg-opacity-60 flex justify-center items-center z-50">
-      <div className="bg-white p-6 rounded shadow-lg w-11/12 md:w-2/4 xl:w-1/4">
+      <div className="bg-gray-100 p-6 rounded shadow-lg w-11/12 md:w-7/12 xl:w-5/12">
         <div className="flex justify-end">
           <CloseOutlined className="text-md text-gray-main" onClick={onClose} />
         </div>
