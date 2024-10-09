@@ -102,9 +102,9 @@ const NewTransaction = ():JSX.Element => {
           {errors?.kind && <p className="text-red-500 text-sm">{errors.kind}</p>}
         </div>
 
-        <p className="font-semibold text-primary-light mb-1">
+        <label className="font-semibold text-primary-light mb-1">
           Valor
-        </p>
+        </label>
         <div className="max-w-[250px] mb-6">
           <Input
             placeholder="0,00"
