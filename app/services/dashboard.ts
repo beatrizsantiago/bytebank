@@ -1,16 +1,20 @@
+import APIHandler from './api';
+
+const api = new APIHandler();
+
 export interface IDashboardData {
   totalValue: number;
 }
 
 export class DashboardService {
-  private url: string;
+  private endpoint: string;
 
   constructor() {
-    this.url = `${process.env.NEXT_PUBLIC_API_URL}/dashboard`;
+    this.endpoint = '/dashboard';
   };
 
   async getData(): Promise<IDashboardData> {
-    const res = await fetch(this.url);
+    const res = await api.get(this.endpoint);
 
     if (!res.ok) {
       throw new Error('Erro ao buscar os dados');

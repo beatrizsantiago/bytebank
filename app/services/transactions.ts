@@ -1,3 +1,7 @@
+import APIHandler from './api';
+
+const api = new APIHandler();
+
 export type KindType = 'DEPOSIT' | 'TRANSFER';
 
 export interface ITransactionData {
@@ -24,22 +28,14 @@ export class TransactionData {
 };
 
 export class TransactionService {
-  private url: string;
+  private endpoint: string;
 
   constructor() {
-    this.url = `${process.env.NEXT_PUBLIC_API_URL}/transacoes`;
+    this.endpoint = '/transacoes';
   };
 
   async add(params:TransactionData): Promise<void> {
-    
-    
-    const res = await fetch(this.url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(params),
-    });
+    const res = await api.post(this.endpoint, params);
 
     if (!res.ok) {
       const err = await res.json();
@@ -55,7 +51,7 @@ export class TransactionService {
       'limit': `${limit || 6}`,
     });
     
-    const res = await fetch(`${this.url}?${searchParams}`);
+    const res = await api.get(`${this.endpoint}?${searchParams}`);
 
     if (!res.ok) {
       const err = await res.json();
@@ -68,13 +64,7 @@ export class TransactionService {
   };
 
   async update(id: string, params: TransactionData): Promise<void> {
-    const res = await fetch(`${this.url}/${id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(params),
-    });
+    const res = await api.put(`${this.endpoint}/${id}`, params);
 
     if (!res.ok) {
       const err = await res.json();
@@ -85,9 +75,7 @@ export class TransactionService {
   };
 
   async remove(id: string): Promise<void> {
-    const res = await fetch(`${this.url}/${id}`, {
-      method: 'DELETE',
-    });
+    const res = await api.delete(`${this.endpoint}/${id}`);
 
     if (!res.ok) {
       const err = await res.json();
