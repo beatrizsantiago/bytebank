@@ -7,8 +7,8 @@ import { ptBR } from 'date-fns/locale';
 import Image from 'next/image';
 import useSWR from 'swr';
 
-import { DashboardService } from '../services/dashboard';
-import { money } from '../utils/formats';
+import { DashboardService } from '../../services/dashboard';
+import { money } from '../../utils/formats';
 
 const Jumbotron = () => {
   const dashboardService = new DashboardService();

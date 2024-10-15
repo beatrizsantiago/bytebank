@@ -3,7 +3,7 @@
 import { LoadingOutlined } from '@ant-design/icons';
 import useSWR from 'swr';
 
-import { TransactionService } from '../../services/transactions'
+import { TransactionService } from '../../../services/transactions'
 import Item from './components/Item';
 
 const StatementList = () => {

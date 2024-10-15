@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { StatementItem } from '@beatrizsantiago/money-flow';
 import { toast } from 'react-toastify';
 
-import { TransactionService, ITransactionData } from '../../../services/transactions'
+import { TransactionService, ITransactionData } from '../../../../services/transactions';
 import EditModal from './EditModal';
 
 type Props = {

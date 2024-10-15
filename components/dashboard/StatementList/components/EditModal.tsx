@@ -9,8 +9,8 @@ import {
   TransactionData,
   TransactionService,
   ITransactionData,
-} from '../../../services/transactions'
-import Modal from '../../Modal';
+} from '../../../../services/transactions';
+import Modal from '../../../Modal';
 
 type Props = {
   onClose: () => void;

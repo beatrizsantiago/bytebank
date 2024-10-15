@@ -1,10 +1,10 @@
 'use client'
 
-import Image from "next/image";
-import { Button } from '@beatrizsantiago/money-flow'
-import { useRouter } from 'next/navigation'
+import Image from 'next/image';
+import { Button } from '@beatrizsantiago/money-flow';
+import { useRouter } from 'next/navigation';
 
-import Landing from "./components/Landing";
+import Landing from '../components/Landing';
 
 export default function NotFound() {
   const router = useRouter()

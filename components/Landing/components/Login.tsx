@@ -6,8 +6,8 @@ import { Input, Button } from '@beatrizsantiago/money-flow';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
-import { AuthenticationService } from '../services/authentication';
-import Modal from './Modal';
+import { AuthenticationService } from '../../../services/authentication';
+import Modal from '../../Modal';
 
 type Props = {
   onClose: () => void;
