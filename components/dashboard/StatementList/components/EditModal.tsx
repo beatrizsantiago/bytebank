@@ -52,9 +52,7 @@ const EditTransactionModal = ({ onClose, transaction }:Props) => {
 
       await transactionService.update(transaction._id, new TransactionData(kind.value as KindType, amount));
 
-      toast.success('Transação atualizada com sucesso!', {
-        onClose: () => window.location.reload(),
-      });
+      window.location.reload();
 
       setKind(null);
       setValue('');

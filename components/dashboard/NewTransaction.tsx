@@ -37,9 +37,7 @@ const NewTransaction = ():JSX.Element => {
         new TransactionData(kind.value as KindType, floatValue)
       );
 
-      toast.success('Transação realizada com sucesso!', {
-        onClose: () => window.location.reload(),
-      });
+      window.location.reload();
 
       setKind(null);
       setValue('');

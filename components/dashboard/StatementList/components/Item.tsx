@@ -19,9 +19,7 @@ const Item = ({ transaction }:Props) => {
   const onDeleteClick = async () => {
     try {
       await transactionService.remove(transaction._id);
-      toast.success('Transação removida com sucesso!', {
-        onClose: () => window.location.reload(),
-      });
+      window.location.reload();
     } catch (error) {
       if (error instanceof Error) {
         toast.error(error.message);
