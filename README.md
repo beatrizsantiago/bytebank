@@ -15,6 +15,20 @@
 
 ### 🎯 Getting Started
 
+Verificar Instalação do Node.js
+
+- Abra um terminal e execute o comando:
+    
+  ```bash
+  node -v
+  ```
+    
+- Se aparecer uma versão como a listada abaixo significa que o Node.js está instalado corretamente. Caso contrário, baixe e instale-o a partir do [site oficial](https://nodejs.dev/en/learn/) ou procure "Node.js" no Google.
+    
+  ```bash
+  v20.18.0
+  ```
+
 Instalar as dependências
 
 ```bash
