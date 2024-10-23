@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Input, Select, Button } from '@beatrizsantiago/money-flow';
+import { Input, Select, Button } from 'money-flow';
 import { toast } from 'react-toastify';
 import Image from 'next/image';
 

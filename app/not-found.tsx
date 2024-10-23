@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image';
-import { Button } from '@beatrizsantiago/money-flow';
+import { Button } from 'money-flow';
 import { useRouter } from 'next/navigation';
 
 import Landing from '../components/Landing';

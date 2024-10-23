@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
-import { Button, Menu } from '@beatrizsantiago/money-flow';
+import { Button, Menu } from 'money-flow';
 import { CloseOutlined, MenuOutlined } from '@ant-design/icons';
 import Login from './Login';
 import SignUp from './SignUp';

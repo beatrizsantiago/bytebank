@@ -5,7 +5,7 @@ const config: Config = {
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
-    './node_modules/@beatrizsantiago/money-flow/**/*.{js,ts,jsx,tsx}'
+    './node_modules/money-flow/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
     fontFamily: {

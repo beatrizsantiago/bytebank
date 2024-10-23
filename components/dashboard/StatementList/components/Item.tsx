@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { StatementItem } from '@beatrizsantiago/money-flow';
+import { StatementItem } from 'money-flow';
 import { toast } from 'react-toastify';
 
 import { TransactionService, ITransactionData } from '../../../../services/transactions';

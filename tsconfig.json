@@ -18,8 +18,8 @@
       }
     ],
     "paths": {
-      "@beatrizsantiago/money-flow": [
-        "./node_modules/@beatrizsantiago/money-flow/dist/index.d.ts"
+      "money-flow": [
+        "./node_modules/money-flow/dist/index.d.ts"
       ]
     }
   },

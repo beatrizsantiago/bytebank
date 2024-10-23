@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { toast } from 'react-toastify';
-import { Input, Select, Button } from '@beatrizsantiago/money-flow';
+import { Input, Select, Button } from 'money-flow';
 
 import {
   KindType,

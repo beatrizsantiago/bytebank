@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { toast } from 'react-toastify';
-import { Input, Button } from '@beatrizsantiago/money-flow';
+import { Input, Button } from 'money-flow';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 

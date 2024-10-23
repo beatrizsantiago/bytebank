@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { CloseOutlined, MenuOutlined, UserOutlined } from '@ant-design/icons';
-import { Menu } from '@beatrizsantiago/money-flow';
+import { Menu } from 'money-flow';
 
 const Header = () => {
   const router = useRouter();

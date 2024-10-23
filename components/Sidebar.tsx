@@ -1,6 +1,6 @@
 'use client';
 
-import { Menu } from '@beatrizsantiago/money-flow';
+import { Menu } from 'money-flow';
 import { useRouter } from 'next/navigation';
 
 const Sidebar = () => {
