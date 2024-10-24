@@ -9,15 +9,19 @@ import useSWR from 'swr';
 
 import { DashboardService } from '../../services/dashboard';
 import { money } from '../../utils/formats';
+import LocalStorage from '../../services/localStorage';
 
 const Jumbotron = () => {
   const dashboardService = new DashboardService();
+  const localStorageService = new LocalStorage();
 
   const { data } = useSWR('dashboard', () => dashboardService.getData());
 
   const [showBalance, setShowBalance] = useState(false)
 
   const today = new Date();
+
+  const userInfo = localStorageService.getUserInfoFromToken();
 
   return (
     <div className="w-full h-[655px] bg-primary-main rounded-lg p-8 flex flex-col text-white sm:flex-row sm:h-[400px] relative">
@@ -54,7 +58,11 @@ const Jumbotron = () => {
         <>
           <div className="flex flex-col items-center mb-6 sm:mr-6 sm:mb-0 sm:items-start z-10">
             <h1 className="font-semibold text-xl leading-6">
-              Olá, teste :)
+              Olá,
+              {' '}
+              {userInfo.user_name.split(' ')[0]}
+              {' '}
+              :)
             </h1>
             <p className="text-sm mt-6">
               {formatDate(today, 'EEEE, dd/MM/yyyy', { locale: ptBR })}
