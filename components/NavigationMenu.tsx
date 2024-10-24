@@ -2,6 +2,7 @@
 
 import { useRouter, usePathname } from 'next/navigation';
 import { Menu } from 'money-flow';
+import { toast } from 'react-toastify';
 
 type Props = {
   inline?: boolean;
@@ -14,7 +15,7 @@ const activeIndex:{[key: string]:number} = {
   '/outros': 3,
 };
 
-const MenuComponent = ({ inline = false }:Props) => {
+const NavigationMenu = ({ inline = false }:Props) => {
   const router = useRouter();
 
   const pathname = usePathname();
@@ -24,13 +25,13 @@ const MenuComponent = ({ inline = false }:Props) => {
       activeIndex={activeIndex[pathname]}
       items={[
         { title: 'Início', onClick: () => router.push('/dashboard') },
-        { title: 'Transferências', onClick: () => router.push('/transferencias') },
-        { title: 'Investimentos', onClick: () => router.push('/investimentos') },
-        { title: 'Outros serviços', onClick: () => router.push('/outros') },
+        { title: 'Transferências', onClick: () => toast.warning('Página ainda não implementada!') },
+        { title: 'Investimentos', onClick: () => toast.warning('Página ainda não implementada!') },
+        { title: 'Outros serviços', onClick: () => toast.warning('Página ainda não implementada!') },
       ]}
       inline={inline}
     />
   );
 };
 
-export default MenuComponent;
+export default NavigationMenu;
