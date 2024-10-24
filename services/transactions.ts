@@ -2,7 +2,7 @@ import APIHandler from './api';
 
 const api = new APIHandler();
 
-export type KindType = 'DEPOSIT' | 'TRANSFER';
+export type KindType = 'DEPOSIT' | 'CURRENCY_EXCHANGE' | 'DOC_TED' | 'LEASING';
 
 export interface ITransactionData {
   _id: string;

@@ -22,9 +22,18 @@ type OptionType = {
   value: string;
 };
 
+const LABELS:{[key:string]:string} = {
+  CURRENCY_EXCHANGE: 'Câmbio de Moeda',
+  DOC_TED: 'DOC/TED',
+  LEASING: 'Empréstimo e Financiamento',
+  DEPOSIT: 'Depósito',
+};
+
+const OPTIONS = Object.keys(LABELS).map((key) => ({ label: LABELS[key], value: key }));
+
 const EditTransactionModal = ({ onClose, transaction }:Props) => {
   const [kind, setKind] = useState<OptionType | null>({
-    label: transaction.kind === 'TRANSFER' ? 'Transferência' : 'Depósito',
+    label: LABELS[transaction.kind],
     value: transaction.kind,
   })
   const [value, setValue] = useState(transaction.value.toString());
@@ -78,16 +87,7 @@ const EditTransactionModal = ({ onClose, transaction }:Props) => {
           <div className="mb-6">
             <Select
               placeholder="Selecione o tipo de transação"
-              options={[
-                {
-                  label: 'Transferência',
-                  value: 'TRANSFER',
-                },
-                {
-                  label: 'Depósito',
-                  value: 'DEPOSIT',
-                },
-              ]}
+              options={OPTIONS}
               selected={kind}
               onChange={(opt) => setKind(opt)}
             />
@@ -97,7 +97,7 @@ const EditTransactionModal = ({ onClose, transaction }:Props) => {
           <label className="font-semibold text-primary-main mb-1 text-sm">
             Valor
           </label>
-          <div className="mb-6">
+          <div className="mb-8 max-w-[300px]">
             <Input
               placeholder="0,00"
               value={value}

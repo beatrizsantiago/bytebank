@@ -86,8 +86,16 @@ const NewTransaction = ():JSX.Element => {
             placeholder="Selecione o tipo de transação"
             options={[
               {
-                label: 'Transferência',
-                value: 'TRANSFER',
+                label: 'Câmbio de Moeda',
+                value: 'CURRENCY_EXCHANGE',
+              },
+              {
+                label: 'DOC/TED',
+                value: 'DOC_TED',
+              },
+              {
+                label: 'Empréstimo e Financiamento',
+                value: 'LEASING',
               },
               {
                 label: 'Depósito',
