@@ -1,13 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { CloseOutlined, MenuOutlined, UserOutlined } from '@ant-design/icons';
-import { Menu } from 'money-flow';
+
+import Menu from './Menu';
 
 const Header = () => {
-  const router = useRouter();
-
   const [openMenu, setOpenMenu] = useState(false)
 
   const toggleMenu = () => setOpenMenu(!openMenu);
@@ -24,15 +22,7 @@ const Header = () => {
                 <div className="flex justify-end">
                   <CloseOutlined className="text-secondary-main text-lg" onClick={toggleMenu} />
                 </div>
-                <Menu
-                  activeIndex={0}
-                  items={[
-                    { title: 'Início', onClick: () => router.push('/dashboard') },
-                    { title: 'Transferências', onClick: () => router.push('/transferencias') },
-                    { title: 'Investimentos', onClick: () => router.push('/investimentos') },
-                    { title: 'Outros serviços', onClick: () => router.push('/outros') },
-                  ]}
-                />
+                <Menu />
               </div>
             )}
           </div>
