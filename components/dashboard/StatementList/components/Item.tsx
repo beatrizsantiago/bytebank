@@ -30,7 +30,7 @@ const Item = ({ transaction }:Props) => {
   };
 
   return (
-    <>
+    <div className="w-full p-6 sm:max-w-[500px] lg:w-full">
       <StatementItem
         date={transaction.date}
         value={transaction.value}
@@ -45,7 +45,7 @@ const Item = ({ transaction }:Props) => {
           transaction={transaction}
         />
       )}
-    </>
+    </div>
   );
 };
 
