@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
 import { AuthenticationService } from '../../../services/authentication';
+import LocalStorage from '../../../services/localStorage';
 import Modal from '../../Modal';
 
 type Props = {
@@ -23,10 +24,11 @@ const Login = ({ onClose }:Props) => {
     e.preventDefault();
 
     const authService = new AuthenticationService();
+    const localStorageService = new LocalStorage();
 
     try {
       const token = await authService.login({ email, password });
-      localStorage.setItem('token', token);
+      localStorageService.setToken(token);
       router.push('/dashboard');
       
     } catch (error) {
