@@ -17,6 +17,7 @@ class LocalStorage {
 
   getUserInfoFromToken():UserData {
     const token = localStorage.getItem('token') as string;
+
     const data = token.split('.')[1];
     const userInfo = JSON.parse(decode(data));
 

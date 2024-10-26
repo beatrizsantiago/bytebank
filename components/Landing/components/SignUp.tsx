@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
 import { AuthenticationService, UserData } from '../../../services/authentication';
-import LocalStorage from '../../../services/localStorage';
+import LocalStorageService from '../../../services/localStorage';
 import Modal from '../../Modal';
 
 type Props = {
@@ -25,7 +25,7 @@ const SignUp = ({ onClose }:Props) => {
     e.preventDefault();
 
     const authService = new AuthenticationService();
-    const localStorageService = new LocalStorage();
+    const localStorageService = new LocalStorageService();
 
     try {
       const token = await authService.register(new UserData(email, password, fullName));

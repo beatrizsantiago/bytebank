@@ -6,12 +6,12 @@ import { CloseOutlined, MenuOutlined, UserOutlined } from '@ant-design/icons';
 import { Menu } from 'money-flow';
 
 import NavigationMenu from './NavigationMenu';
-import LocalStorage from '../services/localStorage';
+import LocalStorageService from '../services/localStorage';
 
 const Header = () => {
   const router = useRouter();
 
-  const localStorageService = new LocalStorage();
+  const localStorageService = new LocalStorageService();
 
   const userInfo = localStorageService.getUserInfoFromToken();
 
@@ -50,13 +50,13 @@ const Header = () => {
             )}
           </div>
 
-          <div className="flex items-center">
+          <div className="relative flex items-center">
             <p className="text-white font-semibold text-sm mr-4 md:mr-8">{userInfo.user_name}</p>
             <div className="w-10 h-10 border-2 border-secondary-main rounded-3xl flex items-center justify-center">
               <UserOutlined className="text-secondary-main text-2xl font-light cursor-pointer" onClick={toggleUserMenu} />
 
               {openUserMenu && (
-                <div className="absolute bg-black p-3 right-0 top-0">
+                <div className="absolute bg-black p-3 right-0 top-14">
                   <div className="flex justify-end">
                     <CloseOutlined className="text-secondary-main text-lg" onClick={toggleUserMenu} />
                   </div>

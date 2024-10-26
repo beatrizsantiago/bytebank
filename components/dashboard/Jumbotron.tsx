@@ -9,11 +9,11 @@ import useSWR from 'swr';
 
 import { DashboardService } from '../../services/dashboard';
 import { money } from '../../utils/formats';
-import LocalStorage from '../../services/localStorage';
+import LocalStorageService from '../../services/localStorage';
 
 const Jumbotron = () => {
   const dashboardService = new DashboardService();
-  const localStorageService = new LocalStorage();
+  const localStorageService = new LocalStorageService();
 
   const { data } = useSWR('dashboard', () => dashboardService.getData());
 
