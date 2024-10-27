@@ -20,9 +20,12 @@ const SignUp = ({ onClose }:Props) => {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const onSignUpClick = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    setLoading(true);
 
     const authService = new AuthenticationService();
     const localStorageService = new LocalStorageService();
@@ -33,6 +36,7 @@ const SignUp = ({ onClose }:Props) => {
       router.push('/dashboard');
       
     } catch (error) {
+      setLoading(false);
       if (error instanceof Error) {
         toast.error(error.message);
       } else {
@@ -108,6 +112,8 @@ const SignUp = ({ onClose }:Props) => {
             className="max-w-[250px]"
             color="secondary"
             type="submit"
+            loading={loading}
+            disabled={loading}
           />
         </div>
       </form>

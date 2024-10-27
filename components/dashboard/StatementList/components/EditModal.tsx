@@ -36,7 +36,7 @@ const EditTransactionModal = ({ onClose, transaction }:Props) => {
     label: LABELS[transaction.kind],
     value: transaction.kind,
   })
-  const [value, setValue] = useState(transaction.value.toString());
+  const [value, setValue] = useState((transaction.value * -1).toString());
   const [errors, setErrors] = useState<{ [key:string]: string } | null>(null)
 
   const onEditClick = async () => {
@@ -57,10 +57,7 @@ const EditTransactionModal = ({ onClose, transaction }:Props) => {
     const transactionService = new TransactionService();
 
     try {
-      const amount = kind.value === 'TRANSFER' ? (floatValue * -1) : floatValue;
-
-      await transactionService.update(transaction._id, new TransactionData(kind.value as KindType, amount));
-
+      await transactionService.update(transaction._id, new TransactionData(kind.value as KindType, floatValue));
       window.location.reload();
 
       setKind(null);
