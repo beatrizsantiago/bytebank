@@ -18,6 +18,9 @@
 ### 🛠 Ferramentas
 - IDE: [VSCode](https://code.visualstudio.com/)
 
+### 🎲 API
+- [bytebank-api](https://github.com/beatrizsantiago/bytebank-api)
+
 ### 🎯 Getting Started
 
 Verificar Instalação do Node.js
