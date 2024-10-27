@@ -8,7 +8,12 @@
 
 ### 📌 Stack de Desenvolvimento
 
-- 
+- [NextJs](https://nextjs.org/);
+- [Ant-design/icons](https://ant.design/components/icon) para biblioteca padrão de ícones;
+- [react-toastify](https://fkhadra.github.io/react-toastify/introduction/) para alertas;
+- [SWR](https://swr.vercel.app/pt-BR) e [FetchAPI](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) para requisições;
+- [date-fns](https://date-fns.org/) para lidar com datas;
+- [money-flow](https://github.com/beatrizsantiago/money-flow): Design System utilizado;
 
 ### 🛠 Ferramentas
 - IDE: [VSCode](https://code.visualstudio.com/)
@@ -41,4 +46,4 @@ Iniciar projeto no modo dev:
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000) com seu navegador.
